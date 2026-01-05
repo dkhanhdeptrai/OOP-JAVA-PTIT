@@ -3,26 +3,23 @@ import java.util.*;
 
 public class TongUocSo {
     static final int MAX = 2_000_000;
-    static int[] spf = new int[MAX + 1];  // smallest prime factor
-
-    // Linear sieve (Euler) xây SPF trong O(N)
+    static int[] spf = new int[MAX + 1];
     static void buildSPF() {
-        int[] primes = new int[150000]; // số lượng prime <= 2e6 ~ 148,933
+        int[] primes = new int[150000];
         int pc = 0;
         for (int i = 2; i <= MAX; i++) {
             if (spf[i] == 0) { spf[i] = i; primes[pc++] = i; }
-            // gán spf cho các bội i*primes[j]
+
             for (int j = 0; j < pc; j++) {
                 int p = primes[j];
                 long d = (long) i * p;
                 if (d > MAX) break;
                 spf[(int) d] = p;
-                if (p == spf[i]) break; // đảm bảo mỗi số chỉ gán bởi prime ≤ spf[i]
+                if (p == spf[i]) break;
             }
         }
     }
 
-    // Tổng các thừa số nguyên tố (có lặp) của x
     static int sumPF(int x) {
         if (x <= 1) return 0;
         int s = 0;
@@ -34,7 +31,6 @@ public class TongUocSo {
         return s;
     }
 
-    // Fast input
     static class FastScanner {
         private final InputStream in;
         private final byte[] buffer = new byte[1 << 16];
@@ -64,12 +60,11 @@ public class TongUocSo {
         FastScanner fs = new FastScanner(System.in);
         buildSPF();
 
-        int N = fs.nextInt();          // 1 ≤ N ≤ 1e6
+        int N = fs.nextInt();
         long total = 0L;
         for (int i = 0; i < N; i++) {
-            int x = fs.nextInt();      // |x| ≤ 2e6 (đề nói "không vượt quá 2*10^6")
+            int x = fs.nextInt();
             if (x >= 2) total += sumPF(x);
-            // x = 0 hoặc 1 => không cộng gì
         }
         System.out.println(total);
     }

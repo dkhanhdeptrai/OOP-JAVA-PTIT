@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class chuanHoaHoTen1 {
+public class ChuanHoaHoTen1 {
 
     public static void main(String[] args) {
         try (Scanner sc = new Scanner(System.in)) {

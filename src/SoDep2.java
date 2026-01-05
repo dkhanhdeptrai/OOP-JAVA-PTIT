@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class soDep2{
+public class SoDep2 {
 
     public static boolean isBeautiful(String s) {
         if (s.charAt(0) != '8' || s.charAt(s.length() - 1) != '8') {

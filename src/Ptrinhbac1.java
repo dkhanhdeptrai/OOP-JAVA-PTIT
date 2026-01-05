@@ -1,6 +1,6 @@
 import java.util.Scanner;
         
-public class ptrinhbac1 {
+public class Ptrinhbac1 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         double a = sc.nextDouble();

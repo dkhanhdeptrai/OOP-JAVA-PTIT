@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 
-public class soDep1 {
+public class SoDep1 {
 
     public static boolean isBeautiful(String s) {
         int len = s.length();

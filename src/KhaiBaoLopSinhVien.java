@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 
-class SinhVien1 {
+class SinhVien{
 
     private String maSV;
     private String hoTen;
@@ -9,18 +9,15 @@ class SinhVien1 {
     private String ngaySinh;
     private float gpa;
 
-    // 1. Hàm khởi tạo không tham số gán giá trị mặc định
-    // Hàm này vẫn truy cập được vào private vì nó ở bên trong lớp
-    SinhVien1() {
+
+    SinhVien() {
         this.maSV = "";
         this.hoTen = "";
         this.lop = "";
         this.ngaySinh = "";
         this.gpa = 0.0f;
     }
-    
-    // 2. Vì thuộc tính là private, ta cần các hàm public
-    // để gán giá trị (setter) và lấy giá trị (getter)
+
 
     public void setMaSV(String maSV) {
         this.maSV = maSV;
@@ -42,7 +39,7 @@ class SinhVien1 {
         this.gpa = gpa;
     }
     
-    // Hàm để chuẩn hóa
+
     public void chuanHoaNgaySinh() {
         String[] parts = this.ngaySinh.split("/");
         if (parts[0].length() == 1) {
@@ -67,24 +64,16 @@ class SinhVien1 {
 public class KhaiBaoLopSinhVien {
 
     public static void main(String[] args) {
-        // Hàm khởi tạo SinhVien() được gọi ở đây
+
         try (Scanner sc = new Scanner(System.in)) {
-            // Hàm khởi tạo SinhVien() được gọi ở đây
+
             SinhVien sv = new SinhVien();
-            
-            // 3. Sử dụng các hàm "set" để gán giá trị
-            // vì không thể truy cập trực tiếp sv.hoTen
             sv.setHoTen(sc.nextLine());
             sv.setLop(sc.nextLine());
             sv.setNgaySinh(sc.nextLine());
             sv.setGpa(sc.nextFloat());
-            
             sv.setMaSV("B20DCCN001");
-            
-            // Yêu cầu sinh viên tự chuẩn hóa
             sv.chuanHoaNgaySinh();
-            
-            // Yêu cầu sinh viên tự in thông tin
             sv.xuatThongTin();
         }
     }

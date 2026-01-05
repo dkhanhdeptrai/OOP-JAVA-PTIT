@@ -33,7 +33,7 @@ class Fraction {
 
   @Override
   public String toString() {
-    if (den == 1) return num + "";
+    if (den == 1) return num + " ";
     return num + "/" + den;
   }
 }
